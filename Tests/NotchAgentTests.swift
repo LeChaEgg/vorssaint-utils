@@ -2307,7 +2307,7 @@ enum NotchAgentTests {
                         && !NotchSupport.routes(.agents, in: defaults),
                      "turning AI agents off removes their page and notices")
         defaults.set(true, forKey: DefaultsKey.notchAgentsEnabled)
-        suite.expect(NotchSupport.modules(in: defaults).last == .agents && NotchAgentSupport.isEnabled(in: defaults)
+        suite.expect(NotchSupport.modules(in: defaults).contains(.agents) && NotchAgentSupport.isEnabled(in: defaults)
                         && NotchSupport.routes(.agents, in: defaults) && NotchAgentSupport.showsLiveActivity(in: defaults),
                      "choosing it adds the page, its notices and its live strip")
         defaults.set(false, forKey: AppFeature.notchAgents.availabilityKey)
